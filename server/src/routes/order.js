@@ -4,10 +4,10 @@ import { createError } from "../middleware/errorHandler.js";
 
 
 const OrderRoutes = async (fastify, options) => {
-fastify.addHook('preHandler', async (request, reply) => {
-   const isAutenticated = await verifyToken(request, reply)
-   if(!isAutenticated) return createError(reply, 401, "Unauthorized");
-});
+    fastify.addHook('preHandler', async (request, reply) => {
+        const isAutenticated = await verifyToken(request, reply)
+        if (!isAutenticated) return createError(reply, 401, "Unauthorized");
+    });
     await fastify.post('/order', createOrder)
     await fastify.get('/order', getOrders)
     await fastify.get('/order/:orderId', getOrderById)
