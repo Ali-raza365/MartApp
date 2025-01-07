@@ -79,7 +79,7 @@ export const confirmOrder = async (req, reply) => {
             address: deliveryPersonLocation?.address
         }
         await orderData.save()
-
+        req.server.io.to(orderId).emit("orderConfirmed", orderData)
         return reply.send({ success: true, orderData })
 
     } catch (error) {
@@ -106,7 +106,7 @@ export const updateOrder = async (req, reply) => {
         if (!devliveryPerson) {
             return createError(reply, 400, "Delivery Person Data not found");
         }
-      
+
         if (["cancelled", "delivered"].includes(orderData?.orderStatus)) {
             return createError(reply, 400, "Order is not available");
         }
@@ -122,6 +122,7 @@ export const updateOrder = async (req, reply) => {
             address: deliveryPersonLocation?.address
         }
         await orderData.save()
+        req.server.io.to(orderId).emit("liveTrackingUpdates", orderData)
 
         return reply.send({ success: true, orderData })
 
@@ -162,7 +163,7 @@ export const getOrders = async (req, reply) => {
 
 export const getOrderById = async (req, reply) => {
     try {
-        const { orderId} = req.params;
+        const { orderId } = req.params;
 
         let orderData = await Order.findById(orderId).populate('customer branch items.id deliveryPartner').exec();
         if (!orderData) {
