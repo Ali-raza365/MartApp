@@ -50,11 +50,11 @@ export const loginDeliveryPerson = async (req, reply) => {
 export const refreshToken = async (req, reply) => {
 
     try {
-        const { refreshToken } = req.body;
-        if (!refreshToken) {
+        const { refresh_token } = req.body;
+        if (!refresh_token) { 
             return createError(reply, 401, "Invalid refresh credentials");
         }
-        const decoded = await jwt.verify(refreshToken, config.RefreshSecret);
+        const decoded = await jwt.verify(refresh_token, config.RefreshSecret);
         console.log(decoded)
         if (!decoded) {
             return createError(reply, 401, "Invalid refresh credentials");

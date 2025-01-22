@@ -1,12 +1,12 @@
-export enum Colors {
-    primary = '#e74c3c', // A vibrant red (soft and warm)
-    primary_light = '#ff6f61',
-    secondary = '#0d8320',
-    text = '#363636',
-    disabled = '#9197a6',
-    border = "#d0d4dc",
-    backgroundSecondary = '#f5f6fb'
-}
+export enum Colors  {
+    primary= '#f81b25', // A vibrant red (soft and warm)
+    primary_light= '#F8313A',
+    secondary= '#0d8320',
+    text= '#363636',
+    disabled= '#9197a6',
+    border= "#d0d4dc",
+    backgroundSecondary= '#f5f6fb'
+} 
 export enum Fonts {
     Regular = 'Okra-Regular',
     Medium = 'Okra-Medium',
@@ -33,3 +33,12 @@ export const darkWeatherColors = [
     'rgba(54, 67, 92, 0.0)',
 
 ];
+
+export const ImagesPaths ={
+logo:require('@assets/images/logo.png'),
+cloud:require('@assets/images/cloud.png'),
+}
+export const AnimationsPaths={
+    delivery:require('@assets/animations/delivery_man.json'),
+    raining:require('@assets/animations/raining.json'),
+}

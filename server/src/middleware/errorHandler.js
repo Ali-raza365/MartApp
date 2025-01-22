@@ -25,7 +25,7 @@ const createError = (reply, statusCode, message, error = null) => {
 
   const err = {
     statusCode: statusCode || 500,
-    error: message || "Internal server error",
+    message: message || "Internal server error",
     timestamp: new Date().toISOString(),
     success: false,
   };
