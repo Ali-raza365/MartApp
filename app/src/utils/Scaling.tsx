@@ -2,6 +2,5 @@ import {Dimensions, Platform} from 'react-native';
 
 export const screenWidth: number = Dimensions.get('window').width;
 export const screenHeight: number = Dimensions.get('window').height;
-export const NoticeHeight: number =
-  Platform.OS === 'ios' ? screenHeight * 0.12 : screenHeight * 0.7;
+export const NoticeHeight: number = Platform.OS === 'ios' ? screenHeight * 0.12 : screenHeight * 0.1;
 export const NOTICE_HEIGHT = -(NoticeHeight + 12); 

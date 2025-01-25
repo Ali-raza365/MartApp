@@ -1,5 +1,5 @@
 import Notice from '@components/dashboard/Notice';
-import {NOTICE_HEIGHT} from '@utils/Scaling';
+import {NOTICE_HEIGHT, NoticeHeight} from '@utils/Scaling';
 import React, {FC} from 'react';
 import {View, StyleSheet, Animated as RNAnimated} from 'react-native';
 
@@ -22,7 +22,7 @@ const NoticeAnimation: FC<{
           {
             paddingTop: noticePosition.interpolate({
               inputRange: [NOTICE_HEIGHT, 0],
-              outputRange: [0, NOTICE_HEIGHT + 20],
+              outputRange: [0, NoticeHeight + 20],
             }),
           },
         ]}>
